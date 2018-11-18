@@ -1,0 +1,3 @@
+".\Objects\AT89C51Assn1.obj" 
+TO ".\Objects\ADB Assn 1" 
+PRINT(".\Listings\ADB Assn 1.m51") RAMSIZE(256) 

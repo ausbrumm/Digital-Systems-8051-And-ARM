@@ -1,0 +1,81 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/03/2017  14:36:35  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\AT89C51Assn1.obj TO .\Objects\ADB Assn 1 PRINT (.\Listings\ADB Assn 1.m51) RAMSIZE
+>>  (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\AT89C51Assn1.obj (AT89C51ASSN1)
+
+
+LINK MAP OF MODULE:  .\Objects\ADB Assn 1 (AT89C51ASSN1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0037H     UNIT         MAINSEG
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\ADB Assn 1 (AT89C51ASSN1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        AT89C51ASSN1
+  C:0800H         SEGMENT       MAINSEG
+  C:081EH         SYMBOL        BOTHSWITCHES
+  C:0800H         SYMBOL        LOOP
+  D:0090H         SYMBOL        P1
+  D:00B0H         SYMBOL        P3
+  C:0800H         SYMBOL        START
+  C:0808H         SYMBOL        SWITCH_36
+  C:0813H         SYMBOL        SWITCH_37
+  C:082AH         SYMBOL        WAIT
+  C:082CH         SYMBOL        WAIT1
+  C:082EH         SYMBOL        WAIT2
+  C:0830H         SYMBOL        WAIT3
+  C:0000H         LINE#         18
+  C:0800H         LINE#         22
+  C:0803H         LINE#         23
+  C:0806H         LINE#         24
+  C:0808H         LINE#         27
+  C:080BH         LINE#         28
+  C:080EH         LINE#         29
+  C:0811H         LINE#         30
+  C:0813H         LINE#         33
+  C:0816H         LINE#         34
+  C:0819H         LINE#         35
+  C:081CH         LINE#         36
+  C:081EH         LINE#         39
+  C:0820H         LINE#         40
+  C:0823H         LINE#         41
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/03/2017  14:36:35  PAGE 2
+
+
+  C:0825H         LINE#         42
+  C:0828H         LINE#         43
+  C:082AH         LINE#         46
+  C:082CH         LINE#         48
+  C:082EH         LINE#         50
+  C:0830H         LINE#         52
+  C:0832H         LINE#         53
+  C:0834H         LINE#         54
+  C:0836H         LINE#         55
+  -------         ENDMOD        AT89C51ASSN1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 003AH BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=58
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

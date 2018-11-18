@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\CountUp.obj" 
+TO ".\Objects\CountUp" 
+PRINT(".\Listings\CountUp.m51") RAMSIZE(256) 

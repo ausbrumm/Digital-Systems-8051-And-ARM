@@ -1,0 +1,70 @@
+C51 COMPILER V9.56.0.0   ASSN4                                                             10/05/2017 13:38:30 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE ASSN4
+OBJECT MODULE PLACED IN .\Objects\assn4.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE assn4.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ass
+                    -n4.lst) TABS(2) OBJECT(.\Objects\assn4.obj)
+
+line level    source
+
+   1          // Austin Brummett
+   2          // Assignment 4
+   3          // October 13, 2017
+   4          //
+   5          // This program sets a potentiometer up to dim an LED
+   6          // It uses sets the LED up at P1.3 which is PWN0
+   7          // and the potentiomenter is set up at P1.0 which is ADC0
+   8          // 
+   9          //
+  10          #include <at89c51cc03.h> // CC03 library file
+  11          
+  12          void main(void) //This is the start of the main program
+  13           {
+  14   1         // Variable decleration
+  15   1         unsigned char temp; 
+  16   1      
+  17   1      
+  18   1          // PWN Stuff
+  19   1          CKCON = 0x01; // x2 mode
+  20   1          CMOD = 0x02; // cpu clock/2
+  21   1          CCON = 0x40; //Bit 6 in CCON turns on PCA timer
+  22   1          CCAPM0 = 0x42; //Bit 6 enables the compare
+  23   1         
+  24   1          // ADC Stuff
+  25   1      
+  26   1          ADCF  = 0x01;        // P1.0 = ADC[0]
+  27   1          ADCON = 0x20;        // Enable ADC Function 
+  28   1          ADCLK = 0x00;        // Prescaler to 0 
+  29   1          EA = 0;              // Turn off interrupts
+  30   1         
+  31   1          while(1)             // Loop Forever
+  32   1           {
+  33   2            ADCON &= 0xF8;     // Reset ADC Channel Select
+  34   2            ADCON |= 0x00;     // Select ADC = Ch0            
+  35   2            ADCON |= 0x20;     // Use Standard mode
+  36   2            ADCON |= 0x08;     // Start ADC Convert
+  37   2            CCAP0H = ADDH;     // send MSB to PWN0
+  38   2            temp = (ADCON & 0x10);    // Get done bit
+  39   2            while(temp != 0x10)// Loop until complete
+  40   2              temp = (ADCON & 0x10);  // set temp
+  41   2            ADCON &= 0xEF;           // Clear ADEOC = 0
+  42   2      
+  43   2            }
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     54    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.56.0.0   ASSN4                                                             10/05/2017 13:38:30 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

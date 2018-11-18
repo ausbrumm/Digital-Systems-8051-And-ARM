@@ -1,0 +1,150 @@
+A51 MACRO ASSEMBLER  AT89C51ASSN1                                                         09/03/2017 14:36:35 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\AT89C51Assn1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE AT89C51Assn1.A51 SET(SMALL) DEBUG PRINT(.\Listings\AT89C51Assn1.lst) OB
+                      JECT(.\Objects\AT89C51Assn1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; Austin Brummett
+
+                       2     ; Assignment 1
+
+                       3     ; Sept 6, 2017
+
+                       4     ;
+
+                       5     ; AT89C51Assn1.A51
+
+                       6     ; This program should turn on the LED at P1.0 & P1.1 when P3.6 or P3.7
+
+                       7     ; are closed, respectively, and when both are closed both lights blink at
+
+                       8     ; a blink rate @ 10 blinks/second
+
+                       9     ;  P3.7 switch P3.6 switch P1.0 LED P1.1 LED
+
+                      10     ;    open 1             open 1          off     off
+
+                      11     ;        open 1         closed0         off     on
+
+                      12     ;        closed0        open1           on              off
+
+                      13     ;        closed0        closed0         blinks  blink
+
+                      14     
+
+                      15     MainSeg SEGMENT CODE
+
+                      16             ;
+
+----                  17             CSEG at 0h                                      ; Start code segment at 0
+
+0000 020000   F       18                     ljmp Start                              ; Jump to Start
+
+----                  19             RSEG MainSeg
+
+0000                  20                     Start:  
+
+0000                  21                     loop:                                   
+
+0000 30B605           22                     JNB P3.6, Switch_36 ; Jump to Switch_3.6 when it P3.6 is 0
+
+0003 30B70D           23                     JNB P3.7, Switch_37 ; Jump to Switch_3.7 when it P3.7 is 0
+
+0006 80F8             24                     jmp loop
+
+                      25                     
+
+0008                  26                     Switch_36:
+
+0008 30B713           27                     JNB P3.7, BothSwitches ; Jump to BothSwitches when it is 0
+
+000B 759001           28                     mov P1, #1; Set P1 to 00000001 to turn on P1.1
+
+000E 759003           29                     mov P1, #3                         ; Set P1 to 00000011 to turn on P1.1
+
+0011 80ED             30                     jmp loop                           ; Jump back to the start of the loop
+
+                      31                     
+
+0013                  32                     Switch_37:
+
+0013 30B608           33                     JNB P3.6, BothSwitches ; Jump to BothSwitches when it is 0
+
+0016 759002           34                     mov P1, #2                         ; Set P1 to 00000010 to turn on P1.0 
+
+0019 759003           35                     mov P1, #3                         ; Set P1 to 00000011 to turn off P1.0 
+
+001C 80E2             36                     jmp loop                           ; Jump back to the start of the loop
+
+                      37                     
+
+001E                  38                     BothSwitches:
+
+001E 1100     F       39                     ACALL WAIT                        ; Delay off
+
+0020 759004           40                     mov P1, #4                        ; Turn both switches on
+
+0023 1100     F       41                     ACALL WAIT                        ; Delay on
+
+0025 759003           42                     mov P1, #3                ; Turn off switches
+
+0028 80D6             43                     jmp loop                          ; jump tp start of loop
+
+                      44                     
+
+002A                  45                     WAIT:  
+
+002A 7C01             46                     mov R4,#01H                       ; Set R4 to 0001
+
+002C                  47                     WAIT1: 
+
+002C 7B00             48                     mov R3,#00H                       ; Set R3 to 0000
+
+002E                  49                     WAIT2: 
+
+002E 7A00             50                     mov R2,#00H                       ; Set R2 to 0000
+
+0030                  51                     WAIT3:  
+
+0030 DAFE             52                     djnz R2,WAIT3             ; R2 <- R2-1, not 0 jump to Wait 3
+
+0032 DBFA             53                     djnz R3,WAIT2             ; R3 <- R3-1, not 0 jump to Wait 2
+
+0034 DCF6             54                     djnz R4,WAIT1             ; R4 <- R3-1, not 0 jump to Wait 1
+
+0036 22               55                     ret                               ; Return from Wait 3
+
+                      56                     
+
+                      57     End
+
+A51 MACRO ASSEMBLER  AT89C51ASSN1                                                         09/03/2017 14:36:35 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BOTHSWITCHES . . .  C ADDR   001EH   R   SEG=MAINSEG
+LOOP . . . . . . .  C ADDR   0000H   R   SEG=MAINSEG
+MAINSEG. . . . . .  C SEG    0037H       REL=UNIT
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0000H   R   SEG=MAINSEG
+SWITCH_36. . . . .  C ADDR   0008H   R   SEG=MAINSEG
+SWITCH_37. . . . .  C ADDR   0013H   R   SEG=MAINSEG
+WAIT . . . . . . .  C ADDR   002AH   R   SEG=MAINSEG
+WAIT1. . . . . . .  C ADDR   002CH   R   SEG=MAINSEG
+WAIT2. . . . . . .  C ADDR   002EH   R   SEG=MAINSEG
+WAIT3. . . . . . .  C ADDR   0030H   R   SEG=MAINSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

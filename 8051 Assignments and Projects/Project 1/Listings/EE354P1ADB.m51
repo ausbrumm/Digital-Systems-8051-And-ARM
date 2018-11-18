@@ -1,0 +1,316 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/19/2017  22:14:01  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\pong.obj, .\Objects\BallDelay.obj, .\Objects\PaddleDelay.ob
+>> j TO .\Objects\EE354P1ADB PRINT (.\Listings\EE354P1ADB.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\pong.obj (PONG)
+  .\Objects\BallDelay.obj (BALLDELAY)
+  .\Objects\PaddleDelay.obj (PADDLEDELAY)
+
+
+LINK MAP OF MODULE:  .\Objects\EE354P1ADB (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         ?DT?PONG
+            DATA    000BH     0001H     UNIT         ?DT?MOVEPADDLES?PONG
+            DATA    000CH     0001H     UNIT         _DATA_GROUP_
+            IDATA   000DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0118H     UNIT         ?PR?MOVEPADDLES?PONG
+            CODE    0918H     0096H     UNIT         ?PR?ABALLISOKAYIGUESS?PONG
+            CODE    09AEH     0036H     UNIT         ?PR?PADDLESRUS?PONG
+            CODE    09E4H     0021H     UNIT         ?PR?MAIN?PONG
+            CODE    0A05H     0016H     UNIT         ?PR?_BLINKRATE?PONG
+            CODE    0A1BH     000EH     UNIT         MAINSEG
+            CODE    0A29H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\EE354P1ADB (?C_STARTUP)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?PONG
+
+?PR?MAIN?PONG                      000CH    0001H
+  +--> ?PR?PADDLESRUS?PONG
+  +--> ?PR?ABALLISOKAYIGUESS?PONG
+
+?PR?PADDLESRUS?PONG                -----    -----
+  +--> ?PR?_BLINKRATE?PONG
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/19/2017  22:14:01  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\EE354P1ADB (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0A29H         SEGMENT       ?C_C51STARTUP
+  I:000DH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0A2CH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0A29H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0A29H         LINE#         133
+  C:0A2BH         LINE#         134
+  C:0A2CH         LINE#         135
+  C:0A2DH         LINE#         136
+  C:0A2FH         LINE#         185
+  C:0A32H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        PONG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0A05H         PUBLIC        _BlinkRate
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00F6H         PUBLIC        ADCF
+  D:00F5H         PUBLIC        ADDH
+  B:0090H.3       PUBLIC        P1_3
+  B:0090H.4       PUBLIC        P1_4
+  D:00F4H         PUBLIC        ADDL
+  C:09AEH         PUBLIC        paddlesRus
+  C:09E4H         PUBLIC        main
+  C:0918H         PUBLIC        aBallisOkayIGuess
+  D:0089H         PUBLIC        TMOD
+  D:0008H         PUBLIC        ballCol
+  D:0009H         PUBLIC        ballDir
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/19/2017  22:14:01  PAGE 3
+
+
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  D:000AH         PUBLIC        ballRow
+  D:00F3H         PUBLIC        ADCON
+  C:0800H         PUBLIC        movePaddles
+  -------         PROC          MAIN
+  -------         DO            
+  D:000CH         SYMBOL        counter
+  -------         ENDDO         
+  C:09E4H         LINE#         32
+  C:09E4H         LINE#         33
+  C:09E4H         LINE#         34
+  C:09E7H         LINE#         35
+  C:09EAH         LINE#         36
+  C:09EDH         LINE#         37
+  C:09F0H         LINE#         38
+  C:09F3H         LINE#         40
+  C:09F6H         LINE#         41
+  C:09F9H         LINE#         42
+  C:09FBH         LINE#         43
+  C:09FDH         LINE#         46
+  C:09FDH         LINE#         47
+  C:09FDH         LINE#         48
+  C:0A00H         LINE#         49
+  C:0A03H         LINE#         50
+  -------         ENDPROC       MAIN
+  -------         PROC          PADDLESRUS
+  C:09AEH         LINE#         55
+  C:09AEH         LINE#         56
+  C:09AEH         LINE#         58
+  C:09B1H         LINE#         59
+  C:09B4H         LINE#         61
+  C:09B9H         LINE#         62
+  C:09BCH         LINE#         63
+  C:09C1H         LINE#         65
+  C:09C4H         LINE#         66
+  C:09C9H         LINE#         70
+  C:09CCH         LINE#         71
+  C:09CFH         LINE#         72
+  C:09D4H         LINE#         74
+  C:09D7H         LINE#         75
+  C:09DCH         LINE#         77
+  C:09DFH         LINE#         78
+  -------         ENDPROC       PADDLESRUS
+  -------         PROC          ABALLISOKAYIGUESS
+  -------         DO            
+  D:0007H         SYMBOL        t
+  -------         ENDDO         
+  C:0918H         LINE#         83
+  C:0918H         LINE#         84
+  C:0918H         LINE#         86
+  C:091AH         LINE#         88
+  C:0920H         LINE#         89
+  C:0920H         LINE#         90
+  C:0927H         LINE#         91
+  C:0927H         LINE#         92
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/19/2017  22:14:01  PAGE 4
+
+
+  C:092AH         LINE#         93
+  C:092CH         LINE#         94
+  C:0938H         LINE#         95
+  C:093AH         LINE#         96
+  C:093CH         LINE#         97
+  C:093EH         LINE#         98
+  C:0945H         LINE#         99
+  C:0945H         LINE#         100
+  C:0948H         LINE#         101
+  C:094AH         LINE#         102
+  C:0959H         LINE#         103
+  C:095BH         LINE#         104
+  C:095DH         LINE#         106
+  C:0963H         LINE#         107
+  C:0963H         LINE#         108
+  C:0963H         LINE#         109
+  C:0963H         LINE#         110
+  C:0963H         LINE#         111
+  C:0965H         LINE#         113
+  C:0965H         LINE#         114
+  C:096CH         LINE#         115
+  C:096CH         LINE#         116
+  C:096FH         LINE#         117
+  C:0971H         LINE#         118
+  C:0980H         LINE#         119
+  C:0982H         LINE#         120
+  C:0984H         LINE#         121
+  C:0986H         LINE#         122
+  C:098DH         LINE#         123
+  C:098DH         LINE#         124
+  C:0990H         LINE#         125
+  C:0992H         LINE#         126
+  C:099FH         LINE#         127
+  C:09A1H         LINE#         128
+  C:09A4H         LINE#         130
+  C:09A4H         LINE#         131
+  C:09A4H         LINE#         132
+  C:09A7H         LINE#         133
+  C:09A7H         LINE#         134
+  C:09A7H         LINE#         135
+  C:09A7H         LINE#         136
+  -------         ENDPROC       ABALLISOKAYIGUESS
+  -------         PROC          _BLINKRATE
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        lp
+  D:0005H         SYMBOL        lp2
+  -------         ENDDO         
+  C:0A05H         LINE#         139
+  C:0A05H         LINE#         140
+  C:0A05H         LINE#         142
+  C:0A0CH         LINE#         143
+  C:0A1AH         LINE#         144
+  -------         ENDPROC       _BLINKRATE
+  -------         PROC          MOVEPADDLES
+  -------         DO            
+  D:000BH         SYMBOL        tmp
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/19/2017  22:14:01  PAGE 5
+
+
+  -------         ENDDO         
+  C:0800H         LINE#         146
+  C:0800H         LINE#         147
+  C:0800H         LINE#         149
+  C:0803H         LINE#         150
+  C:0806H         LINE#         151
+  C:0808H         LINE#         152
+  C:080BH         LINE#         153
+  C:080EH         LINE#         154
+  C:0811H         LINE#         155
+  C:0814H         LINE#         156
+  C:0829H         LINE#         157
+  C:0829H         LINE#         158
+  C:082FH         LINE#         159
+  C:0831H         LINE#         160
+  C:086DH         LINE#         161
+  C:086FH         LINE#         162
+  C:0884H         LINE#         163
+  C:088AH         LINE#         164
+  C:088DH         LINE#         167
+  C:0890H         LINE#         168
+  C:0893H         LINE#         169
+  C:0895H         LINE#         170
+  C:0898H         LINE#         171
+  C:089BH         LINE#         172
+  C:089EH         LINE#         173
+  C:08A1H         LINE#         174
+  C:08B6H         LINE#         175
+  C:08B8H         LINE#         176
+  C:08F4H         LINE#         177
+  C:08F6H         LINE#         178
+  C:090BH         LINE#         179
+  C:0911H         LINE#         180
+  C:0914H         LINE#         182
+  C:0917H         LINE#         184
+  -------         ENDPROC       MOVEPADDLES
+  -------         ENDMOD        PONG
+
+  -------         MODULE        BALLDELAY
+  C:0A1BH         SEGMENT       MAINSEG
+  C:0A1BH         PUBLIC        _BALLDELAY
+  C:0A1DH         SYMBOL        DELAYLOOP
+  C:0A1FH         SYMBOL        DELAYLOOP1
+  C:0A1BH         LINE#         8
+  C:0A1DH         LINE#         9
+  C:0A1FH         LINE#         12
+  C:0A21H         LINE#         13
+  C:0A23H         LINE#         14
+  -------         ENDMOD        BALLDELAY
+
+  -------         MODULE        PADDLEDELAY
+  C:0A1BH         SEGMENT       MAINSEG
+  C:0A24H         PUBLIC        _PADDLEDELAY
+  C:0A25H         SYMBOL        DELAYLOOP
+  C:0A24H         LINE#         8
+  C:0A25H         LINE#         10
+  C:0A27H         LINE#         11
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/19/2017  22:14:01  PAGE 6
+
+
+  C:0A28H         LINE#         12
+  -------         ENDMOD        PADDLEDELAY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MOVEPADDLES?PONG
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0238H BYTE (27%) *
+******************************************************************************
+
+Program Size: data=14.0 xdata=0 code=568
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

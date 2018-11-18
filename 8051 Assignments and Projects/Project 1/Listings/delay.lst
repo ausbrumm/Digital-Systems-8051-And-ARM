@@ -1,0 +1,56 @@
+A51 MACRO ASSEMBLER  DELAY                                                                10/19/2017 13:46:12 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\delay.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE delay.a51 SET(SMALL) DEBUG PRINT(.\Listings\delay.lst) OBJECT(.\Objects
+                      \delay.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     public _Delay
+
+                       2     
+
+                       3     DelaySeg SEGMENT CODE
+
+                       4     
+
+----                   5     RSEG DelaySeg
+
+                       6     
+
+0000                   7     _Delay:
+
+0000 AFFF              8             mov r7, 255
+
+0002 AEFF              9             DelayLoop:      mov r6, 255
+
+0004 DEFE             10             DelayLoop2: djnz r6, DelayLoop2
+
+0006 DFFA             11                                     djnz r7, DelayLoop
+
+0008 22               12                                     ret
+
+                      13     end
+
+                                     
+
+A51 MACRO ASSEMBLER  DELAY                                                                10/19/2017 13:46:12 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAYLOOP. . . . .  C ADDR   0002H   R   SEG=DELAYSEG
+DELAYLOOP2 . . . .  C ADDR   0004H   R   SEG=DELAYSEG
+DELAYSEG . . . . .  C SEG    0009H       REL=UNIT
+_DELAY . . . . . .  C ADDR   0000H   R   SEG=DELAYSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,154 @@
+A51 MACRO ASSEMBLER  ASSN2                                                                09/11/2017 12:46:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\Assn2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Assn2.A51 SET(SMALL) DEBUG PRINT(.\Listings\Assn2.lst) OBJECT(.\Objects
+                      \Assn2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; Austin Brummett
+
+                       2     ; Assignment 2
+
+                       3     ; Sept 18, 2017
+
+                       4     ;
+
+                       5     ; Assn2.A51
+
+                       6     ; This program should turn on the speaker at P1.0 when
+
+                       7     ; the switch at 3.4 is pressed
+
+                       8     
+
+                       9     MainSeg SEGMENT CODE
+
+                      10             ;
+
+                      11             OutBit MACRO x  ; output a bit to Port 1 to turn it on
+
+                      12             mov a, #x
+
+                      13             mov P1, a
+
+                      14             clr a
+
+                      15             endm
+
+----                  16     CSEG at 0h                              ; Start code segment at 0
+
+0000 020000   F       17             jmp START                               ; Jump to Start
+
+----                  18     RSEG MainSeg
+
+0000                  19             START:
+
+0000                  20             loop:
+
+0000 30B402           21             JNB P3.4, Switch_34 ; Jump to Switch_34 when it P3.4 is 0
+
+0003 80FB             22             jmp loop ; go back to the loop
+
+0005                  23             Switch_34:
+
+                      24             ; Get those cycles for the delay
+
+0005 1100     F       25             acall WAIT
+
+0007 1100     F       26             acall WAIT
+
+0009 1100     F       27             acall WAIT
+
+000B 1100     F       28             acall WAIT
+
+000D 1100     F       29             acall WAIT
+
+000F 1100     F       30             acall WAIT
+
+0011 1100     F       31             acall WAIT
+
+0013 1100     F       32             acall WAIT
+
+                      33             
+
+                      34             OutBit 254 ; turn Port 1 on
+
+                      38             
+
+                      39             ; Get those cycles for the delay
+
+001A 1100     F       40             acall WAIT
+
+001C 1100     F       41             acall WAIT
+
+001E 1100     F       42             acall WAIT
+
+0020 1100     F       43             acall WAIT
+
+0022 1100     F       44             acall WAIT
+
+0024 1100     F       45             acall WAIT
+
+0026 1100     F       46             acall WAIT
+
+0028 1100     F       47             acall WAIT
+
+                      48             
+
+                      49             OutBit 255 ; turn Port 1 off
+
+002F 80CF             53             jmp loop
+
+                      54             
+
+0031                  55             WAIT:   
+
+0031 8500A0           56             MOV P2,0x00
+
+0034 E500             57             MOV A,0x00
+
+0036 7E00             58             Lp: MOV R6,#0h
+
+0038 DEFE             59             LOOP1:DJNZ R6,LOOP1
+
+003A F4               60           CPL A
+
+003B F5A0             61           MOV P2,A
+
+003D 22               62           ret
+
+                      63          
+
+A51 MACRO ASSEMBLER  ASSN2                                                                09/11/2017 12:46:50 PAGE     2
+
+                      64                     
+
+                      65     END                             
+
+A51 MACRO ASSEMBLER  ASSN2                                                                09/11/2017 12:46:50 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0000H   R   SEG=MAINSEG
+LOOP1. . . . . . .  C ADDR   0038H   R   SEG=MAINSEG
+LP . . . . . . . .  C ADDR   0036H   R   SEG=MAINSEG
+MAINSEG. . . . . .  C SEG    003EH       REL=UNIT
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0000H   R   SEG=MAINSEG
+SWITCH_34. . . . .  C ADDR   0005H   R   SEG=MAINSEG
+WAIT . . . . . . .  C ADDR   0031H   R   SEG=MAINSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

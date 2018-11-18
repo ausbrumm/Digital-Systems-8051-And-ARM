@@ -1,0 +1,16 @@
+Dependencies for Project 'STM446Template', Target 'Target 1': (DO NOT MODIFY !)
+F (.\pong.c)(0x5A09BB52)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.1.1/CMSIS/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F4xx_DFP/2.11.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F446xx-o ./objects/pong.o -MD)
+I (stm32f446.h)(0x59F359D4)
+F (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Lib\ARM\arm_cortexM4lf_math.lib)(0x58AB5DE6)()
+F (RTE\Device\STM32F446RETx\startup_stm32f446xx.s)(0x59F359D4)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 524"--pd "_RTE_ SETA 1"--pd "STM32F446xx SETA 1"--list .\listings\startup_stm32f446xx.lst--xref -o .\objects\startup_stm32f446xx.o--depend .\objects\startup_stm32f446xx.d)
+F (RTE\Device\STM32F446RETx\system_stm32f4xx.c)(0x59F359D5)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Keil_v5/ARM/PACK/ARM/CMSIS/5.1.1/CMSIS/Include-IC:/Keil_v5/ARM/PACK/Keil/STM32F4xx_DFP/2.11.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F446xx-o ./objects/system_stm32f4xx.o -MD)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x58239238)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f446xx.h)(0x5823924A)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\core_cm4.h)(0x59C18CFE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x588D74B2)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\cmsis_version.h)(0x5984D2A6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\cmsis_compiler.h)(0x59C18CFE)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\cmsis_armclang.h)(0x59C18CFE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x57FCC70C)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\mpu_armv7.h)(0x59C18CFE)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5823924A)

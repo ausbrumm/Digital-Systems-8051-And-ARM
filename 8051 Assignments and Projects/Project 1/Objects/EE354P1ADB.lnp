@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\pong.obj",
+".\Objects\BallDelay.obj",
+".\Objects\PaddleDelay.obj" 
+TO ".\Objects\EE354P1ADB" 
+PRINT(".\Listings\EE354P1ADB.m51") RAMSIZE(256) 

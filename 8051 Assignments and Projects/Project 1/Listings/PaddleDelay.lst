@@ -1,0 +1,59 @@
+A51 MACRO ASSEMBLER  PADDLEDELAY                                                          10/19/2017 22:11:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\PaddleDelay.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE PaddleDelay.a51 SET(SMALL) DEBUG PRINT(.\Listings\PaddleDelay.lst) OBJE
+                      CT(.\Objects\PaddleDelay.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     public _PaddleDelay
+
+                       2             
+
+                       3     MainSeg SEGMENT CODE
+
+                       4     
+
+----                   5     RSEG MainSeg
+
+                       6     
+
+0000                   7     _PaddleDelay:
+
+0000 EF                8             mov a, r7;
+
+0001                   9             DelayLoop:
+
+0001 DFFE             10                                     djnz r7, DelayLoop
+
+0003 22               11                                     ret
+
+0004 22               12             ret
+
+                      13     end
+
+                                     
+
+                                     
+
+                                     
+
+A51 MACRO ASSEMBLER  PADDLEDELAY                                                          10/19/2017 22:11:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAYLOOP. . . . .  C ADDR   0001H   R   SEG=MAINSEG
+MAINSEG. . . . . .  C SEG    0005H       REL=UNIT
+_PADDLEDELAY . . .  C ADDR   0000H   R   SEG=MAINSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

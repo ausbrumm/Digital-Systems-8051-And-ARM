@@ -1,0 +1,60 @@
+A51 MACRO ASSEMBLER  BALLDELAY                                                            10/19/2017 22:14:01 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\BallDelay.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE BallDelay.a51 SET(SMALL) DEBUG PRINT(.\Listings\BallDelay.lst) OBJECT(.
+                      \Objects\BallDelay.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     public _BallDelay
+
+                       2     
+
+                       3     MainSeg SEGMENT CODE
+
+                       4     
+
+----                   5     RSEG MainSeg
+
+                       6     
+
+0000                   7     _BallDelay:
+
+0000 7FFF              8             mov r7, #255
+
+0002 7E28              9             DelayLoop:      mov r6, #40
+
+                      10                                     ; mov r6, #20
+
+0004                  11             DelayLoop1:
+
+0004 DEFE             12                                     djnz r6, DelayLoop1
+
+0006 DFFA             13                                     djnz r7, DelayLoop
+
+0008 22               14                                     ret
+
+                      15     end
+
+                                     
+
+A51 MACRO ASSEMBLER  BALLDELAY                                                            10/19/2017 22:14:01 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAYLOOP. . . . .  C ADDR   0002H   R   SEG=MAINSEG
+DELAYLOOP1 . . . .  C ADDR   0004H   R   SEG=MAINSEG
+MAINSEG. . . . . .  C SEG    0009H       REL=UNIT
+_BALLDELAY . . . .  C ADDR   0000H   R   SEG=MAINSEG
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

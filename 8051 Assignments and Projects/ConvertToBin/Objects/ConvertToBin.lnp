@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\ConvertToBin.obj" 
+TO ".\Objects\ConvertToBin" 
+PRINT(".\Listings\ConvertToBin.m51") RAMSIZE(256) 

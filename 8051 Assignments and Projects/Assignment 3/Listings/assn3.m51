@@ -1,0 +1,149 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/25/2017  21:03:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\assn3.obj TO .\Objects\assn3 PRINT (.\Listings\assn3.m51) R
+>> AMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\assn3.obj (ASSN3)
+
+
+LINK MAP OF MODULE:  .\Objects\assn3 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     003DH     UNIT         ?PR?MAIN?ASSN3
+            CODE    083DH     0016H     UNIT         ?PR?_BLINKRATE?ASSN3
+            CODE    0853H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\assn3 (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?ASSN3
+
+?PR?MAIN?ASSN3
+  +--> ?PR?_BLINKRATE?ASSN3
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\assn3 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0853H         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/25/2017  21:03:47  PAGE 2
+
+
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0856H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0853H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0853H         LINE#         133
+  C:0855H         LINE#         134
+  C:0856H         LINE#         135
+  C:0857H         LINE#         136
+  C:0859H         LINE#         185
+  C:085CH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        ASSN3
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:083DH         PUBLIC        _BlinkRate
+  B:0090H.0       PUBLIC        P1_0
+  B:0090H.1       PUBLIC        P1_1
+  B:0090H.2       PUBLIC        P1_2
+  B:0090H.3       PUBLIC        P1_3
+  B:00B0H.4       PUBLIC        P3_4
+  C:0800H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0800H         LINE#         19
+  C:0800H         LINE#         20
+  C:0800H         LINE#         22
+  C:0800H         LINE#         23
+  C:0800H         LINE#         24
+  C:0803H         LINE#         25
+  C:0803H         LINE#         26
+  C:0805H         LINE#         27
+  C:080AH         LINE#         28
+  C:080CH         LINE#         29
+  C:0811H         LINE#         31
+  C:0813H         LINE#         32
+  C:0818H         LINE#         33
+  C:081AH         LINE#         34
+  C:081FH         LINE#         36
+  C:0821H         LINE#         37
+  C:0826H         LINE#         38
+  C:0828H         LINE#         39
+  C:082DH         LINE#         41
+  C:082FH         LINE#         42
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/25/2017  21:03:47  PAGE 3
+
+
+  C:0834H         LINE#         43
+  C:0836H         LINE#         44
+  C:083BH         LINE#         46
+  C:083BH         LINE#         47
+  -------         ENDPROC       MAIN
+  -------         PROC          _BLINKRATE
+  D:0007H         SYMBOL        x
+  -------         DO            
+  D:0006H         SYMBOL        lp
+  D:0005H         SYMBOL        lp2
+  -------         ENDDO         
+  C:083DH         LINE#         50
+  C:083DH         LINE#         51
+  C:083DH         LINE#         53
+  C:0844H         LINE#         54
+  C:0852H         LINE#         55
+  -------         ENDPROC       _BLINKRATE
+  -------         ENDMOD        ASSN3
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0062H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=98
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
