@@ -1,1 +1,2 @@
-EE354
+EE354 - Digital Systems
+
